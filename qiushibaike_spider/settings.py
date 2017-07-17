@@ -61,7 +61,8 @@ COOKIES_ENABLED = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'qiushibaike_spider.pipelines.ArticlePipeline': 300,
+    'qiushibaike_spider.pipeline_console.ArticleConsolePipeline': 300,
+    # 'qiushibaike_spider.pipeline_mysql.ArticleMySQLPipeline': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -105,9 +106,9 @@ REDIRECT_ENABLED = True
 
 # 数据库连接参数
 MYSQL_CONFIG = {
-    'host': 'localhost',  # 主机地址
+    'host': 'your_mysql_host',  # 主机地址
     'port': 3306,  # 端口
-    'user': '',  # 数据库账户
+    'user': 'your_user_name',  # 数据库账户
     'password': 'your_password',  # 数据库密码
     'db': 'qiushibaike',  # 数据库名称
     'charset': 'utf8mb4',  # 设置字符编码
@@ -115,4 +116,7 @@ MYSQL_CONFIG = {
 }
 
 # 爬取循环间隔, 单位为秒
-CRAWL_INTERVAL = 8 * 60 * 60
+CRAWL_INTERVAL = 60 * 60
+
+# 爬取次数, 设置为0即不停止
+CRAWL_CYCLES = 1

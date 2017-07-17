@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """
-糗事百科段子输出管道
+糗事百科段子MySQL输出管道
 基于Pony ORM框架, Pony支持MySQL, postgresql, Oracle 和 SQLite
-本项目采用MySQL保存数据
 如果数据库已存在相同段子, 则更新相关数据
 
 """
@@ -11,7 +10,7 @@
 from .table_entities import db, db_session, DatabaseError, Article
 
 
-class ArticlePipeline:
+class ArticleMySQLPipeline:
     def __init__(self):
         self.db = db
         self.Article = Article
